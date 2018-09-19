@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+		}
+		img{
+			width: 600px;
+			height: 120px;
+		}
+		#container{
+			width:600px;
+			height: 600px;
+			border: 1px solid #000;
+			margin:0 auto;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="container">
+		<img id="img1" src="" onclick="changeImg(this);">
+		<img id="img2" src="" onclick="changeImg(this);">
+		<img id="img3" src="" onclick="changeImg(this);">
+		<img id="img4" src="" onclick="changeImg(this);">
+		<img id="img5" src="" onclick="changeImg(this);">
+	</div>
+
+
+	<script type="text/javascript">
+		let imgArray = [
+			"imgs/funny-cat1_part1.jpg",//index = 0
+			"imgs/funny-cat1_part2.jpg",
+			"imgs/funny-cat1_part3.jpg",
+			"imgs/funny-cat1_part4.jpg",
+			"imgs/funny-cat1_part5.jpg",
+			"imgs/monkey_part1.jpg",//index = 5
+			"imgs/monkey_part2.jpg",
+			"imgs/monkey_part3.jpg",
+			"imgs/monkey_part4.jpg",
+			"imgs/monkey_part5.jpg",
+			"imgs/panda_swap_part1.jpg",//index = 10
+			"imgs/panda_swap_part2.jpg",
+			"imgs/panda_swap_part3.jpg",
+			"imgs/panda_swap_part4.jpg",
+			"imgs/panda_swap_part5.jpg"
+		];
+		let indexArr = [0,5,10];
+		let index = 0;
+		let img1 = document.getElementById("img1");
+		let img2 = document.getElementById("img2");
+		let img3 = document.getElementById("img3");
+		let img4 = document.getElementById("img4");
+		let img5 = document.getElementById("img5");
+
+		function getRandomIndex(){
+			let result = indexArr[Math.floor(Math.random()*3)]
+			return result;
+		}
+		img1.src = imgArray[getRandomIndex()];
+		img2.src = imgArray[getRandomIndex()+1];
+		img3.src = imgArray[getRandomIndex()+2];
+		img4.src = imgArray[getRandomIndex()+3];
+		img5.src = imgArray[getRandomIndex()+4];
+
+		function changeImg(img){
+			if(index==3){
+				index=0;
+			}
+			if(img.id=="img1"){
+				img.src = imgArray[indexArr[index]];
+				index++;
+			}else if(img.id=="img2"){
+				img.src = imgArray[indexArr[index]+1];
+				index++;
+			}else if(img.id=="img3"){
+				img.src = imgArray[indexArr[index]+2];
+				index++;
+			}else if(img.id=="img4"){
+				img.src = imgArray[indexArr[index]+3];
+				index++;
+			}else if(img.id=="img5"){
+				img.src = imgArray[indexArr[index]+4];
+				index++;
+			}
+		}
+
+	</script>
+</body>
+</html>
